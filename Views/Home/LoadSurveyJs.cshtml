@@ -1,0 +1,32 @@
+@model SurveyJsViewModel;
+@section Scripts {
+    <!-- ... -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="https://unpkg.com/survey-jquery/defaultV2.min.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/survey-jquery/survey.jquery.min.js"></script>
+    <!-- ... -->
+    <script>
+        // Create a SurveyJS model from the survey JSON
+        var survey = new Survey.Model(@Html.Raw(Model.JsonData));
+        survey.data = {
+            "name": [{"Id": 1},{"Id": 2}],
+        }
+        console.log(survey)
+        
+        function surveyComplete (survey) {
+            console.log(survey.data);
+            /*saveSurveyResults(
+                "https://your-web-service.com/" + SURVEY_ID,
+                survey.data
+            )*/
+        }
+
+        
+
+        survey.onComplete.add(surveyComplete);
+        survey.render("survey-container");
+    </script>
+}
+
+<div id="survey-container"></div>

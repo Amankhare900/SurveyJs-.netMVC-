@@ -1,0 +1,19 @@
+{
+    "logoPosition": "right",
+    "pages": [
+        {
+            "name": "page1",
+            "elements": [
+                {
+                    "type": "tagbox",
+                    "name": "name",
+                    "title": "Name",
+                    "choices": [
+                        { "text": "Aman", "value": { "Id": 1 } },
+                        { "text": "Rahul", "value": { "Id": 2 } }
+                    ]
+                }
+            ]
+        }
+    ]
+}
